@@ -1,0 +1,20 @@
+
+# Block all search engines from crawling the site
+User-agent: *
+Disallow: /
+
+# Specific block for Google
+User-agent: Googlebot
+Disallow: /
+
+# Block other major search engines
+User-agent: Bingbot
+Disallow: /
+User-agent: Yahoo! Slurp
+Disallow: /
+User-agent: DuckDuckBot
+Disallow: /
+User-agent: Baiduspider
+Disallow: /
+User-agent: Yandex
+Disallow: /
