@@ -23,18 +23,20 @@ const Navbar = () => {
     };
   }, [scrolled]);
 
-  // Add navigation history tracking for back button redirect
+  // Intercept browser back button to redirect to homepage
   useEffect(() => {
-    window.addEventListener('popstate', () => {
-      navigate('/', { replace: true });
-    });
+    const handlePopState = () => {
+      if (location.pathname !== '/') {
+        navigate('/', { replace: true });
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
     
     return () => {
-      window.removeEventListener('popstate', () => {
-        navigate('/', { replace: true });
-      });
+      window.removeEventListener('popstate', handlePopState);
     };
-  }, [navigate]);
+  }, [navigate, location.pathname]);
 
   return (
     <nav
@@ -69,7 +71,7 @@ const Navbar = () => {
             About
           </Link>
           <Link 
-            to="https://preview--stellar-panorama.lovable.app/planets" 
+            to="/planets" 
             className="px-4 py-2 rounded-full bg-space-accent text-white hover:bg-space-highlight transition-colors duration-200 text-sm md:text-base"
           >
             Explore
@@ -112,7 +114,7 @@ const Navbar = () => {
                 </Link>
                 <div className="pt-4 border-t border-space-accent/30 mt-2">
                   <Link 
-                    to="https://preview--stellar-panorama.lovable.app/planets" 
+                    to="/planets" 
                     className="w-full px-4 py-2 rounded-full bg-space-accent text-white hover:bg-space-highlight transition-colors duration-200 text-center block"
                   >
                     Explore
