@@ -28,7 +28,8 @@ const PlanetCard = ({ planet, isReverse, index = 0 }: PlanetCardProps) => {
   const cardStyle = {
     animationDelay,
     animationFillMode: 'forwards',
-    width: isMobile ? '85vw' : '240px',
+    minWidth: isMobile ? '85vw' : '240px',
+    maxWidth: isMobile ? '85vw' : '240px',
   };
   
   return (
