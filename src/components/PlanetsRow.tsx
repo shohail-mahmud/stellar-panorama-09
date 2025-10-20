@@ -34,8 +34,8 @@ const PlanetsRow: React.FC<PlanetsRowProps> = memo(({
         {title}
       </h2>
       
-      <div className="w-full relative overflow-hidden">
-        <div className="flex overflow-x-auto scrollbar-none scroll-smooth gap-3 px-4 sm:px-6 md:px-8 py-2 -webkit-overflow-scrolling-touch">
+      <div className="w-full relative">
+        <div className="planet-row px-4 sm:px-6 md:px-8">
           {planets.map((planet, index) => (
             <PlanetCard 
               key={planet.id}
