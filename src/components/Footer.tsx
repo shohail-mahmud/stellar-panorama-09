@@ -30,6 +30,14 @@ const Footer = () => {
             <Link to="/copyright" className="text-gray-300 hover:text-space-highlight transition-colors">
               Copyright & Credits
             </Link>
+            <a 
+              href="https://faridpur-zilla-chronicle-s09.lovable.app/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-gray-300 hover:text-space-highlight transition-colors"
+            >
+              Faridpur Zilla Chronicle
+            </a>
           </div>
         </div>
         
