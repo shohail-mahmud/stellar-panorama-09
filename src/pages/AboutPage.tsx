@@ -1,19 +1,13 @@
-
 import { useState, useEffect } from 'react';
-
 const AboutPage = () => {
   const [isLoaded, setIsLoaded] = useState(false);
-
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoaded(true);
     }, 100);
-    
     return () => clearTimeout(timer);
   }, []);
-
-  return (
-    <div className="min-h-screen pt-24 pb-16 px-4 md:px-8">
+  return <div className="min-h-screen pt-24 pb-16 px-4 md:px-8">
       <div className="max-w-4xl mx-auto">
         <div className={`opacity-0 transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : ''}`}>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-8 text-glow">About StellarScope</h1>
@@ -32,7 +26,7 @@ const AboutPage = () => {
             <h2 className="text-2xl font-bold text-white mb-6">About the Developer</h2>
             
             <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
-              <div className="w-40 h-40 rounded-full bg-space-accent/20 animate-pulse-slow flex items-center justify-center text-4xl font-bold text-white">
+              <div className="w-40 h-40 rounded-full bg-space-accent/20 animate-pulse-slow flex items-center justify-center text-4xl font-bold text-white mx-0 px-[56px]">
                 SM
               </div>
               
@@ -57,8 +51,6 @@ const AboutPage = () => {
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default AboutPage;
