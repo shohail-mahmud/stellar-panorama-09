@@ -1,20 +1,6 @@
-
-# Block all search engines from crawling the site
+# Allow all search engines to crawl the site
 User-agent: *
-Disallow: /
+Allow: /
 
-# Specific block for Google
-User-agent: Googlebot
-Disallow: /
-
-# Block other major search engines
-User-agent: Bingbot
-Disallow: /
-User-agent: Yahoo! Slurp
-Disallow: /
-User-agent: DuckDuckBot
-Disallow: /
-User-agent: Baiduspider
-Disallow: /
-User-agent: Yandex
-Disallow: /
+# Sitemap location (update with your actual domain)
+Sitemap: https://yourdomain.com/sitemap.xml
