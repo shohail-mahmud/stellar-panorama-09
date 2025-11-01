@@ -28,20 +28,17 @@ const PlanetCard = ({ planet, isReverse, index = 0 }: PlanetCardProps) => {
   const cardStyle = {
     animationDelay,
     animationFillMode: 'forwards' as const,
+    minWidth: isMobile ? '85vw' : '240px',
+    maxWidth: isMobile ? '85vw' : '240px',
   };
-  
-  const mobileCardStyle = isMobile ? {
-    minWidth: '85vw',
-    maxWidth: '85vw',
-  } : {};
   
   return (
     <Link 
       to={`/planet/${planet.id}`}
       className={`planet-card ${animationClass} ${
         isHovered ? 'scale-105' : ''
-      } w-full`}
-      style={{ ...cardStyle, ...mobileCardStyle }}
+      }`}
+      style={cardStyle}
       onMouseEnter={() => handleCardInteraction(true)}
       onMouseLeave={() => handleCardInteraction(false)}
     >

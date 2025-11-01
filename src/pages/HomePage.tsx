@@ -1,6 +1,7 @@
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import PlanetCard from '../components/PlanetCard';
 import { planets } from '../data/planets';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -8,6 +9,8 @@ import { useIsMobile } from '@/hooks/use-mobile';
 const HomePage = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const isMobile = useIsMobile();
+  const firstRowRef = useRef<HTMLDivElement>(null);
+  const secondRowRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -16,6 +19,16 @@ const HomePage = () => {
     
     return () => clearTimeout(timer);
   }, []);
+
+  const scroll = (ref: React.RefObject<HTMLDivElement>, direction: 'left' | 'right') => {
+    if (ref.current) {
+      const scrollAmount = 300;
+      ref.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   // Split planets into rows
   const firstRowPlanets = planets.slice(0, 4);
@@ -72,38 +85,59 @@ const HomePage = () => {
         <div className="max-w-7xl mx-auto mb-16 text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 text-glow">Our Solar System</h2>
           <p className="text-gray-300 max-w-2xl mx-auto">
-            Explore the planets below to discover our cosmic neighborhood. Each planet has its own unique characteristics and story.
+            Scroll through the planets below to explore our cosmic neighborhood. Each planet has its own unique characteristics and story.
           </p>
         </div>
         
-        {/* Desktop: Grid layout, Mobile: Scroll layout */}
-        <div className="max-w-7xl mx-auto">
-          {/* Desktop Grid */}
-          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-            {firstRowPlanets.map((planet) => (
-              <PlanetCard key={planet.id} planet={planet} isReverse={false} />
-            ))}
-          </div>
-          
-          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {secondRowPlanets.map((planet) => (
-              <PlanetCard key={planet.id} planet={planet} isReverse={true} />
-            ))}
-          </div>
-          
-          {/* Mobile Scroll */}
-          <div className="md:hidden overflow-hidden">
-            <div className="planet-row mb-6">
+        <div className="overflow-hidden">
+          {/* First Row with Navigation */}
+          <div className="relative group mb-16">
+            <button
+              onClick={() => scroll(firstRowRef, 'left')}
+              className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-space-accent/80 hover:bg-space-accent text-white p-3 rounded-full shadow-lg transition-all opacity-0 group-hover:opacity-100"
+              aria-label="Scroll left"
+            >
+              <ChevronLeft size={24} />
+            </button>
+            
+            <div className="planet-row" ref={firstRowRef}>
               {firstRowPlanets.map((planet) => (
                 <PlanetCard key={planet.id} planet={planet} isReverse={false} />
               ))}
             </div>
             
-            <div className="planet-row">
+            <button
+              onClick={() => scroll(firstRowRef, 'right')}
+              className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-space-accent/80 hover:bg-space-accent text-white p-3 rounded-full shadow-lg transition-all opacity-0 group-hover:opacity-100"
+              aria-label="Scroll right"
+            >
+              <ChevronRight size={24} />
+            </button>
+          </div>
+          
+          {/* Second Row with Navigation */}
+          <div className="relative group">
+            <button
+              onClick={() => scroll(secondRowRef, 'left')}
+              className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-space-accent/80 hover:bg-space-accent text-white p-3 rounded-full shadow-lg transition-all opacity-0 group-hover:opacity-100"
+              aria-label="Scroll left"
+            >
+              <ChevronLeft size={24} />
+            </button>
+            
+            <div className="planet-row" ref={secondRowRef}>
               {secondRowPlanets.map((planet) => (
                 <PlanetCard key={planet.id} planet={planet} isReverse={true} />
               ))}
             </div>
+            
+            <button
+              onClick={() => scroll(secondRowRef, 'right')}
+              className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-space-accent/80 hover:bg-space-accent text-white p-3 rounded-full shadow-lg transition-all opacity-0 group-hover:opacity-100"
+              aria-label="Scroll right"
+            >
+              <ChevronRight size={24} />
+            </button>
           </div>
         </div>
         
