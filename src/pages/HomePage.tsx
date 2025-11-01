@@ -72,21 +72,38 @@ const HomePage = () => {
         <div className="max-w-7xl mx-auto mb-16 text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 text-glow">Our Solar System</h2>
           <p className="text-gray-300 max-w-2xl mx-auto">
-            {isMobile ? "Scroll through" : "Swipe through"} the planets below to explore our cosmic neighborhood. Each planet has its own unique characteristics and story.
+            Explore the planets below to discover our cosmic neighborhood. Each planet has its own unique characteristics and story.
           </p>
         </div>
         
-        <div className="overflow-hidden">
-          <div className="planet-row mb-16">
+        {/* Desktop: Grid layout, Mobile: Scroll layout */}
+        <div className="max-w-7xl mx-auto">
+          {/* Desktop Grid */}
+          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
             {firstRowPlanets.map((planet) => (
               <PlanetCard key={planet.id} planet={planet} isReverse={false} />
             ))}
           </div>
           
-          <div className="planet-row planet-row-reverse">
+          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {secondRowPlanets.map((planet) => (
               <PlanetCard key={planet.id} planet={planet} isReverse={true} />
             ))}
+          </div>
+          
+          {/* Mobile Scroll */}
+          <div className="md:hidden overflow-hidden">
+            <div className="planet-row mb-6">
+              {firstRowPlanets.map((planet) => (
+                <PlanetCard key={planet.id} planet={planet} isReverse={false} />
+              ))}
+            </div>
+            
+            <div className="planet-row">
+              {secondRowPlanets.map((planet) => (
+                <PlanetCard key={planet.id} planet={planet} isReverse={true} />
+              ))}
+            </div>
           </div>
         </div>
         

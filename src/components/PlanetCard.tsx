@@ -24,21 +24,24 @@ const PlanetCard = ({ planet, isReverse, index = 0 }: PlanetCardProps) => {
   const animationClass = 'animate-fade-in';
   const animationDelay = `${index * 0.1}s`;
 
-  // Reduced card width and adjusted styling
+  // Card dimensions
   const cardStyle = {
     animationDelay,
-    animationFillMode: 'forwards',
-    minWidth: isMobile ? '85vw' : '240px',
-    maxWidth: isMobile ? '85vw' : '240px',
+    animationFillMode: 'forwards' as const,
   };
+  
+  const mobileCardStyle = isMobile ? {
+    minWidth: '85vw',
+    maxWidth: '85vw',
+  } : {};
   
   return (
     <Link 
       to={`/planet/${planet.id}`}
       className={`planet-card ${animationClass} ${
         isHovered ? 'scale-105' : ''
-      }`}
-      style={cardStyle}
+      } w-full`}
+      style={{ ...cardStyle, ...mobileCardStyle }}
       onMouseEnter={() => handleCardInteraction(true)}
       onMouseLeave={() => handleCardInteraction(false)}
     >
