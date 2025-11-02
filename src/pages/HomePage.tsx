@@ -94,7 +94,7 @@ const HomePage = () => {
           <div className="relative group mb-16">
             <button
               onClick={() => scroll(firstRowRef, 'left')}
-              className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-space-accent/80 hover:bg-space-accent text-white p-3 rounded-full shadow-lg transition-all opacity-0 group-hover:opacity-100"
+              className="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-accent/20 backdrop-blur-sm hover:bg-accent/40 text-foreground p-3 rounded-full border border-accent/30 shadow-lg transition-all duration-300 opacity-0 group-hover:opacity-100 hover:scale-110"
               aria-label="Scroll left"
             >
               <ChevronLeft size={24} />
@@ -108,7 +108,7 @@ const HomePage = () => {
             
             <button
               onClick={() => scroll(firstRowRef, 'right')}
-              className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-space-accent/80 hover:bg-space-accent text-white p-3 rounded-full shadow-lg transition-all opacity-0 group-hover:opacity-100"
+              className="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-accent/20 backdrop-blur-sm hover:bg-accent/40 text-foreground p-3 rounded-full border border-accent/30 shadow-lg transition-all duration-300 opacity-0 group-hover:opacity-100 hover:scale-110"
               aria-label="Scroll right"
             >
               <ChevronRight size={24} />
@@ -119,7 +119,7 @@ const HomePage = () => {
           <div className="relative group">
             <button
               onClick={() => scroll(secondRowRef, 'left')}
-              className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-space-accent/80 hover:bg-space-accent text-white p-3 rounded-full shadow-lg transition-all opacity-0 group-hover:opacity-100"
+              className="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-accent/20 backdrop-blur-sm hover:bg-accent/40 text-foreground p-3 rounded-full border border-accent/30 shadow-lg transition-all duration-300 opacity-0 group-hover:opacity-100 hover:scale-110"
               aria-label="Scroll left"
             >
               <ChevronLeft size={24} />
@@ -133,7 +133,7 @@ const HomePage = () => {
             
             <button
               onClick={() => scroll(secondRowRef, 'right')}
-              className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-space-accent/80 hover:bg-space-accent text-white p-3 rounded-full shadow-lg transition-all opacity-0 group-hover:opacity-100"
+              className="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-accent/20 backdrop-blur-sm hover:bg-accent/40 text-foreground p-3 rounded-full border border-accent/30 shadow-lg transition-all duration-300 opacity-0 group-hover:opacity-100 hover:scale-110"
               aria-label="Scroll right"
             >
               <ChevronRight size={24} />

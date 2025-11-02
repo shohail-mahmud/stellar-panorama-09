@@ -1,5 +1,5 @@
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, memo } from 'react';
 import { Link } from 'react-router-dom';
 import { Planet } from '../data/planets';
 import OptimizedImage from './OptimizedImage';
@@ -11,9 +11,8 @@ interface PlanetCardProps {
   index?: number;
 }
 
-const PlanetCard = ({ planet, isReverse, index = 0 }: PlanetCardProps) => {
+const PlanetCard = memo(({ planet, isReverse, index = 0 }: PlanetCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
-  const [imageLoaded, setImageLoaded] = useState(false);
   const isMobile = useIsMobile();
   
   const handleCardInteraction = useCallback((entering: boolean) => {
@@ -47,7 +46,6 @@ const PlanetCard = ({ planet, isReverse, index = 0 }: PlanetCardProps) => {
           src={planet.image} 
           alt={planet.name} 
           className={`planet-image ${isHovered ? 'scale-110' : ''}`}
-          onLoad={() => setImageLoaded(true)}
         />
       </div>
       
@@ -61,6 +59,8 @@ const PlanetCard = ({ planet, isReverse, index = 0 }: PlanetCardProps) => {
       </div>
     </Link>
   );
-};
+});
+
+PlanetCard.displayName = 'PlanetCard';
 
 export default PlanetCard;

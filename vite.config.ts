@@ -25,10 +25,14 @@ export default defineConfig(({ mode }) => ({
         manualChunks: {
           'react-vendor': ['react', 'react-dom', 'react-router-dom'],
           'ui': ['@radix-ui/react-dialog', '@radix-ui/react-toast', '@radix-ui/react-slot'],
+          'icons': ['lucide-react'],
         },
       },
     },
     chunkSizeWarningLimit: 1000,
     minify: 'esbuild',
+    sourcemap: false,
+    cssCodeSplit: true,
+    assetsInlineLimit: 4096,
   },
 }));
