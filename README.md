@@ -1,7 +1,6 @@
 # 🌌 Stellar Panorama 09
 
-A space documentary project made with a little help from **Lovable.dev** ✨
-
+A space documentary project 🚀🌌
 ---
 
 ## 👨‍💻 Author
@@ -26,9 +25,10 @@ It’s a mix of visuals, simple storytelling, and curiosity about the universe.
 ---
 
 ## 🧰 Tools Used
-- HTML, CSS, JavaScript  
-- Lovable.dev  
-- Basic video and image editing tools  
+- **TypeScript** – 95%  
+- **CSS** – 3.8%  
+- **Others** – 1%  
+- Created with by using **Lovable.dev**  
 
 ---
 
