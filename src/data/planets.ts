@@ -176,7 +176,7 @@ export const planets: Planet[] = [
     name: "Neptune",
     description: "The eighth and most distant planet from the Sun, a dynamic world with supersonic winds.",
     fullDescription: "Neptune is the eighth and farthest known Solar planet from the Sun. In the Solar System, it is the fourth-largest planet by diameter, the third-most-massive planet, and the densest giant planet. Neptune is 17 times the mass of Earth, slightly more massive than its near-twin Uranus. Neptune is denser and physically smaller than Uranus because its greater mass causes more gravitational compression of its atmosphere.",
-    image: "/lovable-uploads/d2905bf2-7fef-4009-9319-ad438aaa9539.png",
+    image: "/lovable-uploads/neptune-new.png",
     facts: {
       diameter: "49,244 km",
       mass: "1.02413 × 10^26 kg",
